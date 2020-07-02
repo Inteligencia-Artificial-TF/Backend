@@ -25,10 +25,9 @@ class Backprogation:
     neuronasCapaSalida = 1
     prediccion = 0
     salida = []
-    def __init__(self, entradas, salidasEsperadas,prueba):
+    def __init__(self, entradas, salidasEsperadas):
         self.entradas = entradas
         self.salidasEsperada = salidasEsperadas
-        self.prueba = prueba
         self.pesos_capaOculta = np.random.uniform(size=(self.neuronasCapaEntrada,self.neuronasCapaOculta))
         self.bias_capaOculta =np.random.uniform(size=(1,self.neuronasCapaOculta))
         self.pesos_capaSalida = np.random.uniform(size=(self.neuronasCapaOculta,self.neuronasCapaSalida))
@@ -88,8 +87,8 @@ class Backprogation:
         print("\nSalidas de la red neuronal luego de 10,000 epocas: \n",end='   ')
         print(self.salida)
 
-    def predecir(self):
-            hidden_layer_activation = np.dot(self.prueba,self.pesos_capaOculta)
+    def predecir(self,prueba):
+            hidden_layer_activation = np.dot(prueba,self.pesos_capaOculta)
             hidden_layer_activation += self.bias_capaOculta
             hidden_layer_output = sigmoid(hidden_layer_activation)
             
@@ -111,38 +110,6 @@ class Backprogation:
                 respuesta = i
         return respuesta
             
-        
-
-
-
-
-
-iris_input = np.loadtxt("dataset.txt",delimiter=',',usecols=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24])
-iris_output = np.loadtxt("dataset.txt",delimiter=',',usecols=[25])
-prueba = [[0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0]]
-aux = np.array(iris_output)
-print(iris_input)
-print(iris_output)
-
-iris_output_matrix = []
-b = []
-for i in range(len(aux)):
-    b.append(aux[i])
-    iris_output_matrix.append(b)
-    b = []
-
-
-
-Iris = Backprogation(iris_input, iris_output_matrix,prueba)
-Iris.mostar_datos_iniciales()
-print("-------------------------------------")
-Iris.entrenar()
-print("-------------------------------------")
-Iris.mostrar_datos_finales()
-
-
-print(Iris.predecir())
-print(Iris.Resultado())
 
 
 
