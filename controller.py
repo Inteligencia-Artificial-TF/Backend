@@ -17,7 +17,7 @@ for i in range(len(aux)):
 
 
 backPropagation = mian.Backprogation(dieta_input,dieta_output_matrix)
-
+backPropagation.entrenar()
 JsonArray = {}
 
 enfermedades = ['Artritis','Asma','Diabetes','Hipertension','Migrana','Neumonia','Gripe Comun']
