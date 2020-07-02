@@ -60,7 +60,6 @@ class Backprogation:
 
             #Backpropagation
             error = self.salidasEsperada - predicted_output
-            print(error)
             d_predicted_output = error * sigmoid_derivative(predicted_output)
 
 
