@@ -20,7 +20,7 @@ backPropagation = mian.Backprogation(dieta_input,dieta_output_matrix)
 
 
 
-@app.route('/prueba', methods=['POST'])
+@app.route('/dieta', methods=['POST'])
 def registerEndpoint():
     body = None
     body = request.get_json(force=True)
