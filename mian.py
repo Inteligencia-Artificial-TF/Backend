@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import random
+
 import math
 import copy
 import time
@@ -110,40 +110,7 @@ class Backprogation:
                 menordist = abs(self.prediccion - item )
                 respuesta = i
         return respuesta
-        
 
-
-JsonArray = {}
-
-Comidas = []
-
-structura = {'enfermedad':'' ,'comida':'','url':''}
-
-enfermedades = ['Artritis','Asma','Diabetes','Hipertension','Migrana','Neumonia','Gripe Comun']
-
-ra2 = random.sample(range(20), 10)
-print(ra2)
-recomendaciones = np.loadtxt("dietas.txt",delimiter=',',usecols=[0,1,2],dtype=str)
-for item in recomendaciones:
-    key = item[0]
-    if not(key in JsonArray):
-        JsonArray[key] = []
-    JsonArray[key].append({"comida":item[1],"url":item[2]})
-
-response = JsonArray[enfermedades[6]]
-recomendados = []
-
-for i in ra2:
-    recomendados.append(response[i])
-
-print(recomendados)
-
-
-
-#for item in recomendaciones:
-#     structura = {item[0],item[1],item[2]}
-
-#print(recomendaciones)
 
             
 
